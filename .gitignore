@@ -1,4 +1,4 @@
-*.egg-info
+# *.egg-info
 *.pyc
 *.swp
 /bin/
@@ -9,7 +9,7 @@
 *.egg
 db.sqlite3
 .idea
-/dist
+django_ckeditor_5/**/dist
 django_ckeditor_5/node_modules/
 .vscode/
 build/
