@@ -7,4 +7,5 @@ default:
 	yarn install; \
 	yarn run prod; \
 	cd ..; \
-	python -m build
+	python -m build; \
+	aws s3 cp dist/ s3://mona-public/python/django-ckeditor-5/ --recursive
