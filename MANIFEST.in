@@ -5,4 +5,5 @@ recursive-include django_ckeditor_5/templates *
 include package.json
 include package-lock.json
 include webpack.config.js
+include tailwind.config.js
 include .gitignore

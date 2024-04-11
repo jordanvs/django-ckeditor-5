@@ -55,8 +55,10 @@ def image_verify(f):
         raise NoImageException
 
 
-def handle_uploaded_file(f):
+def handle_uploaded_file(request):
     fs = storage()
+    setattr(fs, "_request", request)
+    f = request.FILES["upload"]
     filename = fs.save(f.name, f)
     return fs.url(filename)
 
@@ -69,6 +71,6 @@ def upload_file(request):
         except NoImageException as ex:
             return JsonResponse({"error": {"message": f"{ex}"}})
         if form.is_valid():
-            url = handle_uploaded_file(request.FILES["upload"])
+            url = handle_uploaded_file(request)
             return JsonResponse({"url": url})
     raise Http404(_("Page not found."))

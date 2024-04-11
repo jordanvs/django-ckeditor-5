@@ -1,4 +1,5 @@
 import ClassicEditor from './src/ckeditor';
+import './src/tailwind.css';
 import './src/override-django.css';
 
 
@@ -74,11 +75,13 @@ function createEditors(element = document.body) {
                 return value;
             }
         );
+               
         config.simpleUpload = {
             'uploadUrl': upload_url, 'headers': {
                 'X-CSRFToken': getCookie(csrf_cookie_name),
             }
         };
+
         ClassicEditor.create(
             editorEl,
             config
